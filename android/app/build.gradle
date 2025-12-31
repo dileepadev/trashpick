@@ -27,6 +27,18 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 apply plugin: 'com.google.gms.google-services'
 
 android {
+    defaultConfig {
+        applicationId "dev.dileepabandara.trashpick"
+        minSdkVersion 19
+        targetSdkVersion 32
+        multiDexEnabled true
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+
+        resValue "string", "google_maps_key",
+                localProperties.getProperty("google.maps.apiKey", "")
+    }
+
     compileSdkVersion 32
 
     sourceSets {
